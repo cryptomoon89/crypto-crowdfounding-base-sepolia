@@ -16,6 +16,8 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+# hardhat.config.js
+
 # env files
 .env*
 
