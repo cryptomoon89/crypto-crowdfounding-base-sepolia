@@ -66,7 +66,7 @@ npm run dev
 ### Environment Variables
 
 \`\`\`env
-PRIVATE_KEY=0x6c9fd6acd369356d4b02698bb7e1d393a4225aea551736e074f6723bd38ef4bf
+PRIVATE_KEY=<YOUR PRIVATE KEY>
 BASE_SEPOLIA_RPC=https://sepolia.base.org
 BASESCAN_API_KEY=your_basescan_api_key
 NEXT_PUBLIC_ONCHAINKIT_API_KEY=your_onchainkit_api_key
