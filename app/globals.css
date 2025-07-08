@@ -1,0 +1,829 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RainbowKit Custom Styles */
+[data-rk] {
+  --rk-colors-accentColor: #7c3aed;
+  --rk-colors-accentColorForeground: #ffffff;
+  --rk-colors-actionButtonBorder: rgba(0, 0, 0, 0.04);
+  --rk-colors-actionButtonBorderMobile: rgba(0, 0, 0, 0.06);
+  --rk-colors-actionButtonSecondaryBackground: rgba(0, 0, 0, 0.06);
+  --rk-colors-closeButton: rgba(60, 66, 66, 0.8);
+  --rk-colors-closeButtonBackground: rgba(0, 0, 0, 0.06);
+  --rk-colors-connectButtonBackground: #ffffff;
+  --rk-colors-connectButtonBackgroundError: #ff494a;
+  --rk-colors-connectButtonInnerBackground: linear-gradient(0deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.06));
+  --rk-colors-connectButtonText: #25292e;
+  --rk-colors-connectButtonTextError: #ffffff;
+  --rk-colors-connectionIndicator: #30e000;
+  --rk-colors-downloadBottomCardBackground: linear-gradient(
+      126deg,
+      rgba(255, 255, 255, 0) 9.49%,
+      rgba(171, 171, 171, 0.04) 71.04%
+    ), #ffffff;
+  --rk-colors-downloadTopCardBackground: linear-gradient(
+      126deg,
+      rgba(171, 171, 171, 0.2) 9.49%,
+      rgba(255, 255, 255, 0) 71.04%
+    ), #ffffff;
+  --rk-colors-error: #ff494a;
+  --rk-colors-generalBorder: rgba(0, 0, 0, 0.06);
+  --rk-colors-generalBorderDim: rgba(0, 0, 0, 0.03);
+  --rk-colors-menuItemBackground: rgba(60, 66, 66, 0.1);
+  --rk-colors-modalBackdrop: rgba(0, 0, 0, 0.3);
+  --rk-colors-modalBackground: #ffffff;
+  --rk-colors-modalBorder: transparent;
+  --rk-colors-modalText: #25292e;
+  --rk-colors-modalTextDim: rgba(60, 66, 66, 0.3);
+  --rk-colors-modalTextSecondary: rgba(60, 66, 66, 0.6);
+  --rk-colors-profileAction: #ffffff;
+  --rk-colors-profileActionHover: rgba(255, 255, 255, 0.5);
+  --rk-colors-profileForeground: rgba(60, 66, 66, 0.06);
+  --rk-colors-selectedOptionBorder: var(--rk-colors-accentColor);
+  --rk-colors-standby: #ffc019;
+  --rk-fonts-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --rk-radii-actionButton: 12px;
+  --rk-radii-connectButton: 12px;
+  --rk-radii-menuButton: 12px;
+  --rk-radii-modal: 24px;
+  --rk-radii-modalMobile: 28px;
+}
+
+.dark [data-rk] {
+  --rk-colors-accentColor: #7c3aed;
+  --rk-colors-accentColorForeground: #ffffff;
+  --rk-colors-actionButtonBorder: rgba(255, 255, 255, 0.04);
+  --rk-colors-actionButtonBorderMobile: rgba(255, 255, 255, 0.08);
+  --rk-colors-actionButtonSecondaryBackground: rgba(255, 255, 255, 0.08);
+  --rk-colors-closeButton: rgba(224, 232, 255, 0.6);
+  --rk-colors-closeButtonBackground: rgba(255, 255, 255, 0.08);
+  --rk-colors-connectButtonBackground: #1a1b23;
+  --rk-colors-connectButtonBackgroundError: #ff494a;
+  --rk-colors-connectButtonInnerBackground: linear-gradient(0deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.15));
+  --rk-colors-connectButtonText: #ffffff;
+  --rk-colors-connectButtonTextError: #ffffff;
+  --rk-colors-connectionIndicator: #30e000;
+  --rk-colors-downloadBottomCardBackground: linear-gradient(
+      126deg,
+      rgba(0, 0, 0, 0) 9.49%,
+      rgba(120, 120, 120, 0.2) 71.04%
+    ), #1a1b23;
+  --rk-colors-downloadTopCardBackground: linear-gradient(
+      126deg,
+      rgba(120, 120, 120, 0.2) 9.49%,
+      rgba(0, 0, 0, 0) 71.04%
+    ), #1a1b23;
+  --rk-colors-error: #ff494a;
+  --rk-colors-generalBorder: rgba(255, 255, 255, 0.08);
+  --rk-colors-generalBorderDim: rgba(255, 255, 255, 0.04);
+  --rk-colors-menuItemBackground: rgba(224, 232, 255, 0.1);
+  --rk-colors-modalBackdrop: rgba(0, 0, 0, 0.5);
+  --rk-colors-modalBackground: #1a1b23;
+  --rk-colors-modalBorder: transparent;
+  --rk-colors-modalText: #ffffff;
+  --rk-colors-modalTextDim: rgba(224, 232, 255, 0.3);
+  --rk-colors-modalTextSecondary: rgba(224, 232, 255, 0.6);
+  --rk-colors-profileAction: #1a1b23;
+  --rk-colors-profileActionHover: rgba(26, 27, 35, 0.5);
+  --rk-colors-profileForeground: rgba(224, 232, 255, 0.06);
+  --rk-colors-selectedOptionBorder: var(--rk-colors-accentColor);
+  --rk-colors-standby: #ffc019;
+}
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --popover: 255 255 255;
+    --popover-foreground: 15 23 42;
+    --primary: 59 130 246;
+    --primary-foreground: 255 255 255;
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+    --accent: 236 254 255;
+    --accent-foreground: 15 23 42;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 59 130 246;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0 0;
+    --foreground: 255 255 255;
+    --card: 9 9 11;
+    --card-foreground: 255 255 255;
+    --popover: 9 9 11;
+    --popover-foreground: 255 255 255;
+    --primary: 59 130 246;
+    --primary-foreground: 0 0 0;
+    --secondary: 24 24 27;
+    --secondary-foreground: 255 255 255;
+    --muted: 24 24 27;
+    --muted-foreground: 161 161 170;
+    --accent: 24 24 27;
+    --accent-foreground: 255 255 255;
+    --destructive: 220 38 38;
+    --destructive-foreground: 255 255 255;
+    --border: 39 39 42;
+    --input: 39 39 42;
+    --ring: 59 130 246;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+    min-height: 100vh;
+  }
+}
+
+/* Custom animations */
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.8);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes eth-rain {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes counter-flip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(-90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.glow-animation {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.pulse-glow-animation {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.shake-animation {
+  animation: shake 0.5s ease-in-out;
+}
+
+.counter-flip {
+  animation: counter-flip 0.6s ease-in-out;
+}
+
+.eth-rain {
+  animation: eth-rain 3s linear infinite;
+}
+
+/* Bitcoin-themed animations */
+@keyframes bitcoin-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(249, 115, 22, 0.4), 0 0 10px rgba(249, 115, 22, 0.3), 0 0 15px rgba(249, 115, 22, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.6), 0 0 20px rgba(249, 115, 22, 0.5), 0 0 30px rgba(249, 115, 22, 0.4);
+  }
+}
+
+@keyframes pulse-orange {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float-up-down {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes neon-flicker {
+  0%,
+  100% {
+    text-shadow: 0 0 5px rgba(249, 115, 22, 0.8), 0 0 10px rgba(249, 115, 22, 0.6), 0 0 15px rgba(249, 115, 22, 0.4);
+  }
+  50% {
+    text-shadow: 0 0 2px rgba(249, 115, 22, 0.8), 0 0 5px rgba(249, 115, 22, 0.6), 0 0 8px rgba(249, 115, 22, 0.4);
+  }
+}
+
+.glow-animation {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.pulse-glow-animation {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.rotate-animation {
+  animation: rotate-slow 20s linear infinite;
+}
+
+.neon-text {
+  animation: neon-flicker 2s ease-in-out infinite;
+}
+
+/* Gradient backgrounds */
+.gradient-bg-light {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 25%, #a7f3d0 50%, #6ee7b7 75%, #34d399 100%);
+}
+
+.gradient-bg-dark {
+  background: radial-gradient(ellipse at top, #1a1a1a 0%, #000000 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-orange {
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 50%, #fdba74 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  background: linear-gradient(135deg, #10b981, #059669);
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.gradient-border-orange {
+  background: linear-gradient(135deg, #f97316, #fb923c);
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.gradient-border > * {
+  background: white;
+  border-radius: 10px;
+}
+
+.dark .gradient-border > * {
+  background: #0f172a;
+}
+
+.gradient-border-orange > * {
+  background: #111111;
+  border-radius: 10px;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.card-hover-dark {
+  transition: all 0.3s ease;
+  background: rgba(17, 17, 17, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.card-hover-dark:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
+  border-color: rgba(249, 115, 22, 0.4);
+}
+
+/* Button animations */
+.btn-animate {
+  transition: all 0.2s ease;
+}
+
+.btn-animate:hover {
+  transform: translateY(-1px);
+}
+
+.btn-animate:active {
+  transform: translateY(0);
+}
+
+.btn-animate-orange {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-animate-orange::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-animate-orange:hover::before {
+  left: 100%;
+}
+
+.btn-animate-orange:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(249, 115, 22, 0.3);
+}
+
+/* Progress bar animations */
+.progress-bar {
+  background: linear-gradient(90deg, #10b981, #059669, #047857);
+  background-size: 200% 100%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.progress-bar-orange {
+  background: linear-gradient(90deg, #f97316, #fb923c, #fdba74);
+  background-size: 200% 100%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Modern Superchain Animations */
+@keyframes superchain-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.4), 0 0 10px rgba(139, 92, 246, 0.3), 0 0 15px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.6), 0 0 20px rgba(139, 92, 246, 0.5), 0 0 30px rgba(6, 182, 212, 0.4);
+  }
+}
+
+@keyframes pulse-superchain {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes matrix-digital {
+  0% {
+    transform: translateY(-100vh) rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotateX(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes hologram-flicker {
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 10px rgba(139, 92, 246, 0.6), 0 0 15px rgba(6, 182, 212, 0.4);
+  }
+  25% {
+    opacity: 0.8;
+    text-shadow: 0 0 2px rgba(59, 130, 246, 0.8), 0 0 5px rgba(139, 92, 246, 0.6), 0 0 8px rgba(6, 182, 212, 0.4);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.9), 0 0 15px rgba(139, 92, 246, 0.7), 0 0 20px rgba(6, 182, 212, 0.5);
+  }
+  75% {
+    opacity: 0.9;
+    text-shadow: 0 0 3px rgba(59, 130, 246, 0.8), 0 0 7px rgba(139, 92, 246, 0.6), 0 0 10px rgba(6, 182, 212, 0.4);
+  }
+}
+
+@keyframes cyber-scan {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+@keyframes neural-network {
+  0%,
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+  50% {
+    stroke-dashoffset: 20;
+    opacity: 0.8;
+  }
+}
+
+@keyframes quantum-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotateZ(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotateZ(90deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateZ(180deg);
+  }
+  75% {
+    transform: translateY(-30px) rotateZ(270deg);
+  }
+}
+
+@keyframes data-stream {
+  0% {
+    transform: translateX(-100%) scaleY(1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%) scaleY(1.2);
+  }
+  100% {
+    transform: translateX(100%) scaleY(1);
+    opacity: 0;
+  }
+}
+
+/* Animation Classes */
+.superchain-glow {
+  animation: superchain-glow 3s ease-in-out infinite;
+}
+
+.pulse-superchain {
+  animation: pulse-superchain 4s ease-in-out infinite;
+}
+
+.hologram-text {
+  animation: hologram-flicker 3s ease-in-out infinite;
+}
+
+.quantum-float {
+  animation: quantum-float 8s ease-in-out infinite;
+}
+
+.cyber-scan {
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+  background-size: 200% 100%;
+  animation: cyber-scan 2s linear infinite;
+}
+
+.neural-network {
+  animation: neural-network 4s ease-in-out infinite;
+}
+
+.data-stream {
+  animation: data-stream 3s linear infinite;
+}
+
+/* Gradient Backgrounds */
+.gradient-bg-superchain {
+  background: radial-gradient(ellipse at top, #1e1b4b 0%, #000000 100%);
+}
+
+.gradient-text-superchain {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border-superchain {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.gradient-border-superchain > * {
+  background: #0a0a0a;
+  border-radius: 10px;
+}
+
+/* Card Effects */
+.card-superchain {
+  background: rgba(9, 9, 11, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card-superchain:hover {
+  transform: translateY(-8px) rotateX(5deg);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2), 0 0 20px rgba(139, 92, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Button Effects */
+.btn-superchain {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-superchain::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-superchain:hover::before {
+  left: 100%;
+}
+
+.btn-superchain:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+}
+
+/* Security Indicators */
+.security-indicator {
+  position: relative;
+}
+
+.security-indicator::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #10b981, #3b82f6, #8b5cf6, #06b6d4);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Progress Bars */
+.progress-superchain {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+  background-size: 200% 100%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+}
+
+/* Loading Spinner */
+.spinner-superchain {
+  border: 2px solid #333333;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success Checkmark */
+.checkmark-superchain {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #3b82f6;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #3b82f6;
+  animation: fill-superchain 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+}
+
+.checkmark-superchain__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #3b82f6;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark-superchain__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes fill-superchain {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #3b82f6;
+  }
+}
+
+/* Glitch Effect */
+.glitch-superchain {
+  position: relative;
+}
+
+.glitch-superchain::before,
+.glitch-superchain::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-superchain::before {
+  animation: glitch-1 0.5s infinite;
+  color: #3b82f6;
+  z-index: -1;
+}
+
+.glitch-superchain::after {
+  animation: glitch-2 0.5s infinite;
+  color: #8b5cf6;
+  z-index: -2;
+}
+
+/* Holographic Effects */
+.holographic {
+  background: linear-gradient(
+    45deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(139, 92, 246, 0.1) 25%,
+    rgba(6, 182, 212, 0.1) 50%,
+    rgba(16, 185, 129, 0.1) 75%,
+    rgba(59, 130, 246, 0.1) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Quantum Particles */
+.quantum-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #3b82f6, transparent);
+  border-radius: 50%;
+  animation: quantum-float 6s ease-in-out infinite;
+}
+
+.quantum-particle:nth-child(2n) {
+  background: radial-gradient(circle, #8b5cf6, transparent);
+  animation-delay: -2s;
+}
+
+.quantum-particle:nth-child(3n) {
+  background: radial-gradient(circle, #06b6d4, transparent);
+  animation-delay: -4s;
+}
