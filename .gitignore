@@ -17,7 +17,7 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # hardhat.config.js
-const PRIVATE_KEY =
+env.PRIVATE_KEY
 
 # env files
 .env*
